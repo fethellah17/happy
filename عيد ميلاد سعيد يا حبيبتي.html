@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>عيد ميلاد سعيد يا حبيبتي</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Aref+Ruqaa:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:light;
+  --bg1:#FDF2F4;--bg2:#FAE1E5;--rose:#E8899A;--deep:#C95B72;--ink:#7A3B4A;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:inherit}
+html,body{height:100%;margin:0}
+body{
+  font-family:'Amiri',serif;color:var(--ink);overflow:hidden;
+  background:radial-gradient(70% 55% at 50% 40%,#fff8f9,transparent 75%),linear-gradient(160deg,var(--bg1),var(--bg2));
+  display:flex;align-items:center;justify-content:center;padding:20px;
+}
+#fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none}
+.card{
+  position:relative;display:grid;width:min(560px,100%);text-align:center;
+  padding:clamp(40px,10vw,72px) clamp(24px,6vw,52px);
+  background:rgba(255,255,255,.6);
+  -webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);
+  border:1px solid rgba(255,255,255,.95);border-radius:34px;
+  box-shadow:0 24px 70px rgba(201,91,114,.18),0 0 90px rgba(232,137,154,.18);
+  animation:enter 1.6s cubic-bezier(.2,.7,.2,1) backwards;
+}
+@keyframes enter{from{opacity:0;transform:translateY(30px) scale(.96)}to{opacity:1;transform:none}}
+.card>section{grid-area:1/1;align-self:center;transition:opacity 1s ease,transform 1s ease}
+#intro.out{opacity:0;transform:translateY(-16px);visibility:hidden;pointer-events:none;transition:opacity .9s,transform .9s,visibility 0s .9s}
+#msg{opacity:0;visibility:hidden}
+#msg.show{opacity:1;visibility:visible}
+
+.hero{position:relative;width:92px;height:84px;margin:0 auto 12px}
+.hero svg{position:relative;width:100%;height:100%;overflow:visible;filter:drop-shadow(0 0 16px rgba(232,137,154,.85));animation:beat 2.4s ease-in-out infinite}
+.hero i{position:absolute;inset:6px;border:2px solid var(--rose);border-radius:50%;opacity:0;animation:ring 3s ease-out infinite}
+@keyframes ring{0%{transform:scale(.7);opacity:.6}100%{transform:scale(3);opacity:0}}
+@keyframes beat{0%,100%{transform:scale(1)}15%{transform:scale(1.13)}30%{transform:scale(1)}45%{transform:scale(1.08)}}
+
+h1{
+  font-family:'Aref Ruqaa','Amiri',serif;font-weight:700;color:var(--deep);
+  font-size:clamp(2.1rem,9vw,3.1rem);line-height:1.7;margin:4px 0 30px;
+  text-shadow:0 0 24px rgba(232,137,154,.45);
+}
+button{
+  font:inherit;font-style:italic;font-weight:700;font-size:clamp(1.2rem,4.8vw,1.45rem);
+  color:#fff;cursor:pointer;border:0;border-radius:999px;padding:16px 38px;
+  background:linear-gradient(135deg,#F3A6B5,var(--deep));
+  animation:glow 2.2s ease-in-out infinite;transition:transform .25s;
+  -webkit-tap-highlight-color:transparent;
+}
+button:hover{transform:scale(1.04)}
+button:active{transform:scale(.95)}
+button:focus-visible{outline:3px solid var(--deep);outline-offset:5px}
+@keyframes glow{
+  0%,100%{box-shadow:0 10px 26px rgba(201,91,114,.35),0 0 0 0 rgba(232,137,154,.6)}
+  50%{box-shadow:0 10px 34px rgba(201,91,114,.5),0 0 0 18px rgba(232,137,154,0)}
+}
+#msg p{margin:0;font-style:italic;font-size:clamp(1.4rem,5.6vw,1.9rem);line-height:2.15}
+#msg .ph{display:block}
+#msg .w{display:inline-block;opacity:0;transform:translateY(12px);filter:blur(8px)}
+#msg.show .w{opacity:1;transform:none;filter:none;text-shadow:0 0 16px rgba(232,137,154,.5);
+  transition:opacity 1.2s ease,transform 1.2s ease,filter 1.2s ease;transition-delay:calc(var(--i)*.26s)}
+#msg .ph:last-child{color:var(--deep);font-weight:700}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;transition-delay:0s!important}}
+</style>
+</head>
+<body>
+<canvas id="fx" aria-hidden="true"></canvas>
+<main class="card">
+  <section id="intro">
+    <div class="hero" aria-hidden="true"><i></i>
+      <svg viewBox="0 0 100 90"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F9C0CC"/><stop offset="1" stop-color="#D8607A"/></linearGradient></defs>
+      <path d="M50 85C10 55 0 30 18 14 32 2 46 10 50 22 54 10 68 2 82 14 100 30 90 55 50 85Z" fill="url(#g)"/>
+      <ellipse cx="30" cy="25" rx="9" ry="5" transform="rotate(-35 30 25)" fill="#fff" opacity=".55"/></svg>
+    </div>
+    <h1>عيد ميلاد سعيد يا حبيبتي</h1>
+    <button id="open" type="button">اضغطي هنا يا حبيبتي 🤍</button>
+  </section>
+  <section id="msg" aria-live="polite"><p id="txt"></p></section>
+</main>
+<script>
+const cv=document.getElementById('fx'),c=cv.getContext('2d');
+let W,H,D=Math.min(devicePixelRatio||1,2);
+function size(){W=innerWidth;H=innerHeight;cv.width=W*D;cv.height=H*D;c.setTransform(D,0,0,D,0,0)}
+addEventListener('resize',size);size();
+const P=[],R=(a,b)=>a+Math.random()*(b-a),cols=['#F3A6B5','#E8899A','#D8607A','#fff','#F9C0CC'];
+function heart(x,y,s){c.beginPath();c.moveTo(x,y+.9*s);c.bezierCurveTo(x-1.2*s,y+.1*s,x-.8*s,y-.9*s,x,y-.4*s);c.bezierCurveTo(x+.8*s,y-.9*s,x+1.2*s,y+.1*s,x,y+.9*s);c.fill()}
+function bokeh(y){P.push({t:'b',x:R(0,W),y:y??H+80,r:R(20,70),vx:R(-.15,.15),vy:-R(.2,.45),a:R(.2,.4),ph:R(0,6)})}
+function petal(){P.push({t:'p',x:R(0,W),y:-20,r:R(6,11),vx:R(-.3,.4),vy:R(.7,1.5),rot:R(0,6),vr:R(-.04,.04),ph:R(0,6),c:Math.random()<.5?'#F7B2C0':'#F3A6B5'})}
+function heartBurst(x,y,n,k){
+  for(let i=0;i<n;i++){
+    const t=i/n*Math.PI*2,hx=16*Math.sin(t)**3,hy=-(13*Math.cos(t)-5*Math.cos(2*t)-2*Math.cos(3*t)-Math.cos(4*t)),m=R(.75,1.05);
+    P.push({t:'h',x,y,vx:hx*k*m,vy:hy*k*m,r:R(4,9),c:cols[i%5],l:1,g:.012});
+  }
+}
+function pop(x,y){for(let i=0;i<12;i++){const a=R(0,6.28),v=R(1,4);P.push({t:'h',x,y,vx:Math.cos(a)*v,vy:Math.sin(a)*v-1.5,r:R(3,7),c:cols[i%5],l:1,g:.05})}}
+let T=0,petals=0;
+function tick(){
+  T++;c.clearRect(0,0,W,H);
+  if(T%90==0&&P.length<120)bokeh();
+  if(petals>0&&T%7==0){petal();petals--}
+  for(let i=P.length-1;i>=0;i--){
+    const p=P[i];p.x+=p.vx;p.y+=p.vy;let dead=false;
+    if(p.t=='b'){p.x+=Math.sin(T/80+p.ph)*.3;const g=c.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r);
+      g.addColorStop(0,'rgba(255,255,255,'+p.a+')');g.addColorStop(.7,'rgba(248,170,188,'+p.a*.5+')');g.addColorStop(1,'rgba(248,170,188,0)');
+      c.fillStyle=g;c.beginPath();c.arc(p.x,p.y,p.r,0,6.3);c.fill();dead=p.y<-100}
+    else if(p.t=='h'){p.vx*=.965;p.vy=p.vy*.965+p.g;p.l-=.0075;c.globalAlpha=Math.max(p.l,0);c.fillStyle=p.c;c.shadowColor='#E8899A';c.shadowBlur=10;heart(p.x,p.y,p.r);c.shadowBlur=0;c.globalAlpha=1;dead=p.l<=0}
+    else{p.x+=Math.sin(T/40+p.ph)*.8;p.rot+=p.vr;c.save();c.translate(p.x,p.y);c.rotate(p.rot);c.scale(1,.6+.4*Math.sin(T/25+p.ph));c.fillStyle=p.c;c.globalAlpha=.85;
+      c.beginPath();c.moveTo(0,-p.r);c.bezierCurveTo(p.r,-p.r*.6,p.r*.8,p.r,0,p.r);c.bezierCurveTo(-p.r*.8,p.r,-p.r,-p.r*.6,0,-p.r);c.fill();c.restore();c.globalAlpha=1;dead=p.y>H+30}
+    if(dead)P.splice(i,1);
+  }
+  requestAnimationFrame(tick);
+}
+for(let i=0;i<8;i++)bokeh(R(0,H));
+tick();
+
+const phrases=['كل عام وأنتِ فرحة أيامي وأغلى ما أملك في هذه الدنيا.','منذ أن دخلتِ حياتي، صارت أجمل،','فأسأل الله أن يحفظك لي دائماً،','وأن تدومي لي نعمةً لا تُعوض يا حبيبتي🥹❤️'];
+const txt=document.getElementById('txt');let n=0;
+phrases.forEach(s=>{const d=document.createElement('span');d.className='ph';
+  s.split(' ').forEach((w,i,a)=>{const e=document.createElement('span');e.className='w';e.textContent=w;e.style.setProperty('--i',n++);d.appendChild(e);if(i<a.length-1)d.appendChild(document.createTextNode(' '))});
+  txt.appendChild(d)});
+
+const btn=document.getElementById('open'),intro=document.getElementById('intro'),msg=document.getElementById('msg');
+let opened=false;
+btn.addEventListener('click',()=>{
+  if(opened)return;opened=true;
+  const r=btn.getBoundingClientRect(),k=W<600?.17:.24;
+  heartBurst(r.left+r.width/2,r.top+r.height/2,90,k);
+  intro.classList.add('out');
+  setTimeout(()=>{msg.classList.add('show');petals=90},800);
+});
+addEventListener('pointerdown',e=>{if(opened)pop(e.clientX,e.clientY)});
+</script>
+</body>
+</html>
